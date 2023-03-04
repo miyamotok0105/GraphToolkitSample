@@ -1,0 +1,33 @@
+<html>
+ 
+<head>
+    <script src="https://unpkg.com/@microsoft/mgt/dist/bundle/mgt-loader.js"></script>
+    <script src="./common.js"></script>
+</head>
+ 
+<body>
+    <mgt-msal-provider client-id="xxxxxx-xxxxx-xxxx-xxx-xxxxxx" authority="https://login.microsoftonline.com/xxxxxx-xxxxx-xxxx-xxx-xxxxxx"></mgt-msal-provider>
+    <mgt-login></mgt-login>
+
+
+    <mgt-teams-channel-picker></mgt-teams-channel-picker>
+    <mgt-get id="messagesGet" version="beta">
+        <template data-type="value">
+            <div data-if="!deletedDateTime" class="teams-message">
+                <mgt-person user-id="{{from.user.id}}" view="oneLine" person-card="hover"></mgt-person>
+                <div data-props="@click: messageClick, innerHTML: body.content"></div>
+                <div class="reply hidden">
+                    <input></input>
+                    <button>reply</button>
+                </div>
+            </div>
+        </template>
+        <template data-type="loading">
+            loading
+        </template>
+    </mgt-get>
+
+
+</body>
+ 
+</html>
